@@ -1,5 +1,24 @@
 .el-container {
   height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+.el-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.el-left {
+  display: flex;
+  margin-top: 5%;
+}
+.el-right {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+}
+.el-search {
 }
 .el-list-container {
   display: flex;
@@ -10,6 +29,12 @@
   flex-wrap: wrap;
   overflow: scroll;
   height: 70vh;
+}
+.el-bookmarks {
+  display: flex;
+  flex-direction: column;
+
+  align-items: end;
 }
 .el-search {
   display: flex;

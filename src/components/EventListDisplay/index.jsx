@@ -81,33 +81,40 @@ export default function EventListDisplay() {
             <div className='search-bar'>
               <input value={search} onChange={handleSearchChange}></input>
             </div>
+
             <div className='el-bookmarks'>
-              BookMarked{' '}
-              <input
-                type='radio'
-                name='bookmark'
-                id='bookmark'
-                checked={filterBookMarked}
-                onClick={() => {
-                  setFilterBookMarked(!filterBookMarked);
-                }}
-                onChange={() => {
-                  setFilterBookMarked(!filterBookMarked);
-                }}
-              />
-              Seats Available{' '}
-              <input
-                type='radio'
-                name='seats'
-                id='seats'
-                checked={filterSeatsAvailable}
-                onClick={() => {
-                  setFilterSeatsAvailable(!filterSeatsAvailable);
-                }}
-                onChange={() => {
-                  setFilterSeatsAvailable(!filterSeatsAvailable);
-                }}
-              />
+              <div>
+                {' '}
+                BookMarked{' '}
+                <input
+                  type='radio'
+                  name='bookmark'
+                  id='bookmark'
+                  checked={filterBookMarked}
+                  onClick={() => {
+                    setFilterBookMarked(!filterBookMarked);
+                  }}
+                  onChange={() => {
+                    setFilterBookMarked(!filterBookMarked);
+                  }}
+                />
+              </div>
+              <div>
+                {' '}
+                Seats Available{' '}
+                <input
+                  type='radio'
+                  name='seats'
+                  id='seats'
+                  checked={filterSeatsAvailable}
+                  onClick={() => {
+                    setFilterSeatsAvailable(!filterSeatsAvailable);
+                  }}
+                  onChange={() => {
+                    setFilterSeatsAvailable(!filterSeatsAvailable);
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>

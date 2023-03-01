@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './eventdetaildisplay.css';
 import { EventDataContext } from '../../contexts/EventData';
+
+import { ThemeContext } from '../../contexts/Theme';
 import makeRequest from '../../utils/makeRequest';
 import { PATCH_EVENTS } from '../../constants/apiEndPoints';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,6 +15,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 export default function EventDetailDisplay() {
   const { eventData, setEventData } = useContext(EventDataContext);
+  const { theme, setTheme } = useContext(ThemeContext);
   const { event, setEvent } = useContext(EventDataContext);
   const value = event;
   console.log('v%', JSON.stringify(value));
@@ -43,6 +46,7 @@ export default function EventDetailDisplay() {
     <div className='event-detail-container'>
       <div
         className='event-detail-card'
+        style={{ backgroundColor: theme }}
         key={value.id}
         onClick={() => {
           setEvent(value);

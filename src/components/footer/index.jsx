@@ -12,8 +12,17 @@ export default function Footer() {
   useEffect(() => {
     makeRequest(GET_THEME, {}).then((res) => {
       setThemeList(res);
+      console.log('*', res['themes']);
+      let preferredTheme;
+      res &&
+        res['themes'].map((value) => {
+          value.id === res.preferredThemeId ? (preferredTheme = value) : null;
+        });
+      console.log('****', preferredTheme);
+      setTheme(preferredTheme['colorHexCode']);
     });
   }, []);
+
   console.log(themeList, 'p');
   return themeList ? (
     <div className='footer padding' style={{ backgroundColor: theme }}>

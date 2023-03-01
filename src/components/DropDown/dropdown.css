@@ -1,5 +1,6 @@
 .drop-down-container {
-  background-color: aqua;
+  background-color: white;
+  color: black;
 }
 .options {
   height: 30px;
