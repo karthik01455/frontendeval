@@ -44,41 +44,41 @@ export default function EventListCards({ value }) {
   return (
     <div
       data-testid='card'
-      className='el-card'
+      className='event-list-card'
       key={value.id}
       style={{ backgroundColor: theme }}
     >
       <div
-        className='el-image-container'
+        className='event-list-image-container'
         onClick={() => {
           setEvent(value);
           navigate(`/eventDetails`);
         }}
       >
-        <img className='el-image' src={value.imgUrl}></img>
+        <img className='event-list-image' src={value.imgUrl}></img>
       </div>
 
       <div
-        className='el-card-text'
+        className='event-list-card-text'
         onClick={() => {
           setEvent(value);
           navigate(`/eventDetails`);
         }}
       >
-        <div className='el-card-name'>{value.name}</div>
-        <div className='el-card-description'>{value.description}</div>
-        <div className='el-card-text-footer'>
+        <div className='event-list-card-name'>{value.name}</div>
+        <div className='event-list-card-description'>{value.description}</div>
+        <div className='event-list-card-text-footer'>
           <div>VENUE:{value.venue}</div>
           <div>
             DATE:{dateEvent} {month} {year} {time}
           </div>
         </div>
       </div>
-      <div className='el-card-footer'>
-        <div className='el-card-registered'>
+      <div className='event-list-card-footer'>
+        <div className='event-list-card-registered'>
           {/* <FontAwesomeIcon icon={value.isRegistered ? faCircleCheck : null} /> */}
           {/* <div>{value.isRegistered ? 'REGISTERED' : null}</div> */}
-          <div className='el-card-seat'>
+          <div className='event-list-card-seat'>
             <FontAwesomeIcon
               icon={
                 !value.areSeatsAvailable && !value.isRegistered
@@ -95,7 +95,7 @@ export default function EventListCards({ value }) {
           </div>
         </div>
         <div
-          className='el-card-bookmark'
+          className='event-list-card-bookmark'
           onClick={() => {
             makeRequest(PATCH_EVENTS(value.id), {
               data: { isBookmarked: !bookMarked },

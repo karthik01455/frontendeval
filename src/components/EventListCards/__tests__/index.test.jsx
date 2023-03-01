@@ -16,8 +16,8 @@ describe('EvenListCards', () => {
     const { container } = render(
       <EventDataContext.Provider
         value={{
-          bookData: null,
-          setBookData: jest.fn(),
+          eventData: null,
+          setEventData: jest.fn(),
         }}
       >
         <EventListCards value={mockData[0]} />
@@ -32,8 +32,8 @@ describe('EvenListCards', () => {
     const { container } = render(
       <EventDataContext.Provider
         value={{
-          bookData: null,
-          setBookData: jest.fn(),
+          eventData: null,
+          setEventData: jest.fn(),
         }}
       >
         <EventListCards value={mockData[0]} />

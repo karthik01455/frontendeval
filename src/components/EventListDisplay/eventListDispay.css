@@ -23,7 +23,7 @@
 .el-list-container {
   display: flex;
   flex-direction: row;
-  column-gap: 15px;
+  column-gap: 40px;
   row-gap: 15px;
   margin-top: 5%;
   justify-content: center;
@@ -72,7 +72,7 @@
   .el-list-container {
     display: flex;
     flex-direction: column;
-    column-gap: 15px;
+    column-gap: 20px;
     row-gap: 15px;
     margin-top: 5%;
     justify-content: center;

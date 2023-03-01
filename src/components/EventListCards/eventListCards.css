@@ -1,4 +1,4 @@
-.el-card {
+.event-list-card {
   display: flex;
   height: 400px;
   width: 300px;
@@ -8,27 +8,27 @@
   background-color: black;
   color: white;
 }
-.el-image-container {
+.event-list-image-container {
   height: 200px;
   width: 300px;
 }
-.el-image {
+.event-list-image {
   height: 200px;
   width: 300px;
   border: 0 0 5px 0 solid white;
 }
 
-.el-card-text {
+.event-list-card-text {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.el-card-name {
+.event-list-card-name {
   display: flex;
   margin: 3% 5% 3% 5%;
   font-weight: bold;
 }
-.el-card-description {
+.event-list-card-description {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   justify-content: center;
@@ -36,26 +36,26 @@
   overflow: hidden;
   margin: 3% 8% 3% 8%;
 }
-.el-card-text-footer {
+.event-list-card-text-footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   font-size: small;
 }
-.el-card-footer {
+.event-list-card-footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 3% 8% 3% 8%;
 }
-.el-card-seat {
+.event-list-card-seat {
 }
-.el-card-registered {
+.event-list-card-registered {
   display: flex;
   row-gap: 2%;
   flex-direction: row;
 }
-.el-card-bookmark {
+.event-list-card-bookmark {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
