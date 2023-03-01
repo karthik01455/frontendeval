@@ -7,13 +7,7 @@ import { ThemeContext } from '../../contexts/Theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 import './eventListCards.css';
-import {
-  GET_EVENTS,
-  PATCH_EVENTS,
-  GET_EVENTS_ID,
-  GET_THEME,
-  PUT_THEME,
-} from '../../constants/apiEndPoints';
+import { PATCH_EVENTS } from '../../constants/apiEndPoints';
 import {
   faBookmark,
   faCircleXmark,
@@ -48,7 +42,12 @@ export default function EventListCards({ value }) {
   const { event, setEvent } = useContext(EventDataContext);
   const { theme, setTheme } = useContext(ThemeContext);
   return (
-    <div className='el-card' key={value.id} style={{ backgroundColor: theme }}>
+    <div
+      data-testid='card'
+      className='el-card'
+      key={value.id}
+      style={{ backgroundColor: theme }}
+    >
       <div
         className='el-image-container'
         onClick={() => {

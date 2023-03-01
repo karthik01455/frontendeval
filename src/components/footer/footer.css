@@ -4,10 +4,10 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: 2%;
   height: 50px;
   align-content: center;
   color: rgb(255, 255, 255);
-  background-color: #000000;
 }
 .box {
   height: 30px;
