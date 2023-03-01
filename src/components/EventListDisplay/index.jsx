@@ -8,7 +8,6 @@ import DropDown from '../DropDown';
 import { GET_EVENTS } from '../../constants/apiEndPoints';
 export default function EventListDisplay() {
   const { eventData, setEventData } = useContext(EventDataContext);
-
   const { event, setEvent } = useContext(EventDataContext);
   const handleSearchChange = (event) => {
     setSearch(event.target.value);
@@ -79,7 +78,6 @@ export default function EventListDisplay() {
             <div className='search-bar'>
               <input value={search} onChange={handleSearchChange}></input>
             </div>
-
             <div className='el-bookmarks'>
               <div>
                 {' '}
