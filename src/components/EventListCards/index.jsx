@@ -4,7 +4,7 @@ import makeRequest from '../../utils/makeRequest';
 import { EventDataContext } from '../../contexts/EventData';
 ('../../utils/makeRequest');
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { useNavigate } from 'react-router-dom';
 import './eventListCards.css';
 import {
   GET_EVENTS,
@@ -21,6 +21,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 export default function EventListCards({ value }) {
+  const navigate = useNavigate();
   const date = new Date(value.datetime);
   const months = [
     'Jan',
@@ -43,13 +44,26 @@ export default function EventListCards({ value }) {
   const time = date.getTime();
   const [bookMarked, setBookMarked] = useState(value.isBookmarked);
   const { eventData, setEventData } = useContext(EventDataContext);
+  const { event, setEvent } = useContext(EventDataContext);
   return (
     <div className='el-card' key={value.id}>
-      <div className='el-image-container'>
+      <div
+        className='el-image-container'
+        onClick={() => {
+          setEvent(value);
+          navigate(`/eventDetails`);
+        }}
+      >
         <img className='el-image' src={value.imgUrl}></img>
       </div>
 
-      <div className='el-card-text'>
+      <div
+        className='el-card-text'
+        onClick={() => {
+          setEvent(value);
+          navigate(`/eventDetails`);
+        }}
+      >
         <div className='el-card-name'>{value.name}</div>
         <div className='el-card-description'>{value.description}</div>
         <div className='el-card-text-footer'>
@@ -83,7 +97,7 @@ export default function EventListCards({ value }) {
           className='el-card-bookmark'
           onClick={() => {
             makeRequest(PATCH_EVENTS(value.id), {
-              data: { isBookmarked: !value.isBookmarked },
+              data: { isBookmarked: !bookMarked },
             }).then((res) => {
               const eventDataChange = [...eventData];
               const recordIndex = eventDataChange.findIndex(

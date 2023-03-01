@@ -5,15 +5,14 @@ export const EventDataContext = createContext({});
 
 export function EventDataProvider({ children }) {
   const [eventData, setEventData] = useState(null);
-  const [search, setSearch] = useState(null);
-
+  const [event, setEvent] = useState({});
   return (
     <EventDataContext.Provider
       value={{
         eventData,
         setEventData,
-        search,
-        setSearch,
+        event,
+        setEvent,
       }}
     >
       {children}

@@ -10,5 +10,8 @@
   display: flex;
   flex-direction: column;
 }
-.search-bar {
+.el-left {
+  display: flex;
+  height: 100px;
+  width: 500px;
 }
