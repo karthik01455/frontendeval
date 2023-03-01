@@ -1,0 +1,54 @@
+.el-card {
+  display: flex;
+  height: 400px;
+  width: 300px;
+  flex-direction: column;
+  border-radius: 3%;
+  overflow: hidden;
+  background-color: black;
+  color: white;
+}
+.el-image-container {
+  height: 200px;
+  width: 300px;
+}
+.el-image {
+  height: 200px;
+  width: 300px;
+  border: 0 0 5px 0 solid white;
+}
+
+.el-card-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.el-card-name {
+  display: flex;
+  margin: 3% 5% 3% 5%;
+  font-weight: bold;
+}
+.el-card-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 3% 8% 3% 8%;
+}
+.el-card-text-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: small;
+}
+.el-card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 3% 8% 3% 8%;
+}
+.el-card-bookmark {
+  display: flex;
+  flex-direction: row;
+}

@@ -1,0 +1,17 @@
+header {
+  color: white;
+  padding: 10px;
+  font-size: 30px;
+  width: 100%;
+  background-color: black;
+}
+@media only screen and (max-width: 500px) {
+  header {
+    background-color: black;
+    color: white;
+
+    padding: 15px 0 5px 0;
+    font-size: 30px;
+    width: auto;
+  }
+}
