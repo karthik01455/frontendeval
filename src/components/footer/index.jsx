@@ -8,6 +8,7 @@ import { GET_THEME, PUT_THEME } from '../../constants/apiEndPoints';
 
 export default function Footer() {
   const [themeList, setThemeList] = useState(null);
+  const [id, setId] = useState(null);
   const { theme, setTheme } = useContext(ThemeContext);
   useEffect(() => {
     makeRequest(GET_THEME, {}).then((res) => {
@@ -53,9 +54,7 @@ export default function Footer() {
             <div
               onClick={() => {
                 setTheme(value.colorHexCode);
-                makeRequest(PUT_THEME, { preferredThemeId: value.id }).then(
-                  (res) => {}
-                );
+                setId(value.id);
               }}
               className='box'
               style={{ backgroundColor: value.colorHexCode }}
@@ -65,6 +64,17 @@ export default function Footer() {
       ) : (
         <div>Loading...</div>
       )}
+      <div
+        onClick={() => {
+          makeRequest(PUT_THEME, {
+            data: { preferredThemeId: id },
+          }).then((res) => {
+            console.log(res);
+          });
+        }}
+      >
+        UPDATE THEME
+      </div>
     </div>
   ) : (
     <div>Loading...</div>

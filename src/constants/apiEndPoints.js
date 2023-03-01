@@ -17,7 +17,7 @@ export const GET_THEME = {
 };
 export const PUT_THEME = {
   url: `${BACKEND_URL}/api/themes`,
-  method: 'GET',
+  method: 'PUT',
 };
 
 // export const GET_LIKE_BY_ID = (id) => ({
