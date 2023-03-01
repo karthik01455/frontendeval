@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css';
 import Header from '../../components/Header';
+import Footer from '../../components/footer';
 import EventListDisplay from '../../components/EventListDisplay';
 import '../../styles/padding.css';
 export default function Home() {
@@ -12,7 +13,9 @@ export default function Home() {
       <div className='event-body-container'>
         <EventListDisplay />
       </div>
-      <div className='footer'></div>
+      <div className='footer'>
+        <Footer />
+      </div>
     </div>
   );
 }

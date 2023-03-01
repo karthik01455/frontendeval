@@ -1,10 +1,15 @@
+.el-container {
+  height: 90vh;
+}
 .el-list-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   column-gap: 10px;
   margin-top: 5%;
   justify-content: center;
+  flex-wrap: wrap;
+  overflow: scroll;
+  height: 70vh;
 }
 .el-search {
   display: flex;

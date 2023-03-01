@@ -2,6 +2,7 @@
 import React, { useContext, useState } from 'react';
 import makeRequest from '../../utils/makeRequest';
 import { EventDataContext } from '../../contexts/EventData';
+import { ThemeContext } from '../../contexts/Theme';
 ('../../utils/makeRequest');
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
@@ -45,8 +46,9 @@ export default function EventListCards({ value }) {
   const [bookMarked, setBookMarked] = useState(value.isBookmarked);
   const { eventData, setEventData } = useContext(EventDataContext);
   const { event, setEvent } = useContext(EventDataContext);
+  const { theme, setTheme } = useContext(ThemeContext);
   return (
-    <div className='el-card' key={value.id}>
+    <div className='el-card' key={value.id} style={{ backgroundColor: theme }}>
       <div
         className='el-image-container'
         onClick={() => {

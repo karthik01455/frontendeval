@@ -5,13 +5,9 @@ import { EventDataContext } from '../../contexts/EventData';
 import makeRequest from '../../utils/makeRequest';
 import EventListCards from '../EventListCards';
 import DropDown from '../DropDown';
-import {
-  GET_EVENTS,
-  PATCH_EVENTS,
-  GET_EVENTS_ID,
-  GET_THEME,
-  PUT_THEME,
-} from '../../constants/apiEndPoints';
+import { GET_EVENTS } from '../../constants/apiEndPoints';
+
+import { ThemeContext } from '../../contexts/Theme';
 export default function EventListDisplay() {
   const { eventData, setEventData } = useContext(EventDataContext);
 
@@ -84,8 +80,6 @@ export default function EventListDisplay() {
           <div className='el-search'>
             <div className='search-bar'>
               <input value={search} onChange={handleSearchChange}></input>
-              {'event'}
-              {JSON.stringify(event)}
             </div>
             <div className='el-bookmarks'>
               BookMarked{' '}
