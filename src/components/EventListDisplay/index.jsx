@@ -6,8 +6,6 @@ import makeRequest from '../../utils/makeRequest';
 import EventListCards from '../EventListCards';
 import DropDown from '../DropDown';
 import { GET_EVENTS } from '../../constants/apiEndPoints';
-
-import { ThemeContext } from '../../contexts/Theme';
 export default function EventListDisplay() {
   const { eventData, setEventData } = useContext(EventDataContext);
 
