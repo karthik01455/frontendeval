@@ -1,13 +1,48 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import makeRequest from '../../utils/makeRequest';
+import { EventDataContext } from '../../contexts/EventData';
+('../../utils/makeRequest');
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import './eventListCards.css';
+import {
+  GET_EVENTS,
+  PATCH_EVENTS,
+  GET_EVENTS_ID,
+  GET_THEME,
+  PUT_THEME,
+} from '../../constants/apiEndPoints';
 import {
   faBookmark,
   faCircleXmark,
+  faBookBookmark,
   faCircleCheck,
 } from '@fortawesome/free-solid-svg-icons';
+
 export default function EventListCards({ value }) {
+  const date = new Date(value.datetime);
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  let month = months[date.getMonth()];
+  const dateEvent = date.getDate();
+  const year = date.getFullYear();
+  const timeZone = date.getTimezoneOffset();
+  const time = date.getTime();
+  const [bookMarked, setBookMarked] = useState(value.isBookmarked);
+  const { eventData, setEventData } = useContext(EventDataContext);
   return (
     <div className='el-card' key={value.id}>
       <div className='el-image-container'>
@@ -19,16 +54,51 @@ export default function EventListCards({ value }) {
         <div className='el-card-description'>{value.description}</div>
         <div className='el-card-text-footer'>
           <div>VENUE:{value.venue}</div>
-          <div>DATE:{value.datetime}</div>
+          <div>
+            DATE:{dateEvent} {month} {year} {time}
+          </div>
         </div>
       </div>
       <div className='el-card-footer'>
         <div className='el-card-registered'>
-          {' '}
-          <FontAwesomeIcon icon={faCircleCheck} />
+          {/* <FontAwesomeIcon icon={value.isRegistered ? faCircleCheck : null} /> */}
+          {/* <div>{value.isRegistered ? 'REGISTERED' : null}</div> */}
+          <div className='el-card-seat'>
+            <FontAwesomeIcon
+              icon={
+                !value.areSeatsAvailable && !value.isRegistered
+                  ? faCircleXmark
+                  : faCircleCheck
+              }
+            />
+          </div>
+
+          <div>
+            {!value.isRegistered && !value.areSeatsAvailable
+              ? 'NO SEATS AVAILABLE'
+              : null}
+          </div>
         </div>
-        <div className='el-card-bookmark'>
-          <FontAwesomeIcon icon={faBookmark} />
+        <div
+          className='el-card-bookmark'
+          onClick={() => {
+            makeRequest(PATCH_EVENTS(value.id), {
+              data: { isBookmarked: !value.isBookmarked },
+            }).then((res) => {
+              const eventDataChange = [...eventData];
+              const recordIndex = eventDataChange.findIndex(
+                (record) => record.id === res.id
+              );
+              eventDataChange[recordIndex]
+                ? (eventDataChange[recordIndex].isBookmarked =
+                    !eventDataChange[recordIndex].isBookmarked)
+                : null;
+              setEventData(eventDataChange);
+              setBookMarked(!bookMarked);
+            });
+          }}
+        >
+          <FontAwesomeIcon icon={bookMarked ? faBookmark : faBookBookmark} />
         </div>
       </div>
     </div>

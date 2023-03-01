@@ -3,7 +3,7 @@ export const GET_EVENTS = {
   url: `${BACKEND_URL}/API/EVENTS`,
   method: 'GET',
 };
-export const PATCH_EVENTS_LIKE = (id) => ({
+export const PATCH_EVENTS = (id) => ({
   url: `${BACKEND_URL}/api/events/${id}`,
   method: 'PATCH',
 });

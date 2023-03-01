@@ -48,7 +48,16 @@
   justify-content: space-between;
   margin: 3% 8% 3% 8%;
 }
+.el-card-seat {
+}
+.el-card-registered {
+  display: flex;
+  row-gap: 2%;
+  flex-direction: row;
+}
 .el-card-bookmark {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
 }

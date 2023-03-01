@@ -3,4 +3,12 @@
   flex-direction: row;
   flex-wrap: wrap;
   column-gap: 10px;
+  margin-top: 5%;
+  justify-content: center;
+}
+.el-search {
+  display: flex;
+  flex-direction: column;
+}
+.search-bar {
 }
